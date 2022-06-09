@@ -1,0 +1,233 @@
+/* 
+found FONT at https://fonts.google.com/ 
+*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+
+
+/* To create a reset, use universal selector(asterisk: {})
+to set the box-sizing in border-box: 
+it allows us to add padding and borders etc.
+without having to add to the width of an element,
+*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    height: 100%;
+}
+
+body, header, footer {
+    font-family: "Lato", sans-serif;
+    color: #090909;
+    line-height: 1.6;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/*
+Here I wanted to position the footer 
+with HTML on the bottom of the Website
+-this didn't work. Why?
+main {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 30px 20px;
+    margin: 0;
+    min-height: calc(100vh- 80px-40px);
+}
+*/
+
+/* 
+I don't want to have any bullet points-> so I'll set ul to list-style-type: NONE
+*/
+ul{
+    list-style-type: none;
+}
+
+/* 
+For the links I don't want them to be undelined
+->so I'll set text-decoration to NONE;
+color of the Links should be the same as the text
+->color set to same color like title (in the body) 
+*/
+a {
+   text-decoration: none;
+   color: rgb(69, 150, 150);
+}
+
+
+/*
+to make a margin on top and bottom
+-> set margin to 10px, but left and right 0;
+*/
+h1,h2 {
+    font-size: 400;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+/*
+also I'll put on top and bottom of the paragraphs a margin, so they're not squished together
+->set p to 10px on top and bottom;
+*/
+p {
+    margin: 10px 0;
+}
+
+.image-grid {
+    --gap:16 px;
+    --num-cols:4;
+    --row-height:500px;
+
+    box-sizing: border-box;
+    padding: var(--gap);
+
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols),1fr);
+    grid-auto-rows: var(--row-height);
+    gap: var(--gap);
+}
+
+.image-grid>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-grid-col-2{
+    grid-column: span 2;
+}
+
+.image-grid-row-2{
+    grid-row: span 2;
+}
+
+/*anything under 1024px*/
+@media screen and (max-width: 1024px){
+    .image-grid{
+        --num-cols: 2;
+        --row-height: auto;
+    }
+    
+}
+@media screen and (max-width: 512px){
+    .image-grid{
+        --num-cols: 1;
+        --row-height: auto;
+    }
+    
+}
+
+
+/*
+to keep the images within their container
+->I'll set the width to 100% ,
+so even if its a large image , it won't bust out of the container
+*/
+img {
+    width:100%;
+}
+
+/*
+Styling of the NavBar
+-> set class of navbar rgb(27, 30, 29) etc.
+*/
+.navbar {
+    background-color: rgb(10, 96, 88);
+    color: rgb(251, 253, 253);
+    height: 80px;
+}
+
+
+/*
+the nav bar items were in a column, 
+so I createtd ".navbar ul{display:flex} "
+*/
+.navbar ul{
+    display: flex;
+}
+
+
+/*after navbar ul , I change the color 
+and the padding, etc of the nav bar letters
+*/
+.navbar a {
+    color: white;
+    padding: 10px;
+    margin:0 5px ;
+}
+
+.navbar a:hover{
+    color: rgb(251, 26, 232);
+}
+
+.navbarflex{
+    justify-content: space-between;
+}
+
+.navbar a.current{
+    color: rgb(251, 26, 232);
+}
+/*
+to set the icon or portrait(?) AND the navBar-points (left and right of the navBar
+->I'll add a container set a max width
+-> to leave space in middle, I'll set margin to 0px on top and bottom
+and auto on left and right
+->see the difference , where the text stays, 
+when you narrow or widen the browser-window;
+Overflow set to auto to get rid of space over h1 
+*/
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 10px;
+}
+
+/*
+After I changed in index.html the <div class="container"> 
+to <div class="container flex">, I'll have to add it here too: .flex{};
+display: flex-> it will be displayed into a Flex-Coulumn
+->now the second flex item, which is the nav, 
+will be displayed on the right side of the title
+Before I had "justify-content: center;" 
+but I want "Katinkas's Website on the left 
+and the nav bar on the right 
+-> so I'll create a ".navbarflex{}" and put it to 
+"justify-content: space-between";*/
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+
+/*
+.footer {
+    display: flex;
+    justify-content: center;
+}
+*/
+
+.footer {
+    position:sticky;
+    bottom:0;
+    background-color: rgb(10, 96, 88);
+    color: rgb(251, 253, 253);
+    height: 40px;
+    font-family: "Lato", sans-serif;
+    color: rgb(251, 253, 253);
+    line-height: 1.6;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+} 
+
+
